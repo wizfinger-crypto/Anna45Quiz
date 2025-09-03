@@ -2,7 +2,7 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
-  <title>Quiz om [väns namn]</title>
+  <title>Quiz om Anna</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 20px; }
     .question { margin-bottom: 20px; }
@@ -81,12 +81,12 @@
       const name = document.getElementById("name").value;
 
       // 🔴 BYT UT DENNA MOT DIN EGEN FORM-URL
-      const formUrl = "https://docs.google.com/forms/d/e/DITT-FORM-ID/formResponse";
+      const formUrl = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdOgJprJzcLMgFLy00tqZdBl1U_YCO1wymXGi5WwZhcY1WOUw/formResponse";
       
       // 🔴 BYT UT entry.XXXX MOT DINA RIKTIGA ID:N
       const data = new FormData();
-      data.append("entry.111111", name);  // <-- ID för "Namn"
-      data.append("entry.222222", score); // <-- ID för "Poäng"
+      data.append("entry.0", name);  // <-- ID för "Namn"
+      data.append("entry.2", score); // <-- ID för "Poäng"
 
       fetch(formUrl, { method: "POST", body: data, mode: "no-cors" })
         .then(() => {
