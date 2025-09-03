@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz om [väns namn]</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .question { margin-bottom: 20px; }
+    .hidden { display: none; }
+    button { margin: 5px; padding: 10px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Quiz om [väns namn]</h1>
+
+  <!-- QUIZ-DELEN -->
+  <div id="quiz"></div>
+
+  <!-- RESULTAT-DELEN -->
+  <div id="result" class="hidden">
+    <h2>Du fick <span id="score"></span> rätt!</h2>
+    <form id="sendForm">
+      <label for="name">Ditt namn:</label>
+      <input type="text" id="name" name="name" required>
+      <button type="submit">Skicka resultat</button>
+    </form>
+  </div>
+
+  <script>
+    // ---- 🔴 LÄGG IN DINA FRÅGOR HÄR ----
+    const questions = [
+      { q: "Vilken är hennes favoritfärg?", options: ["Blå", "Röd", "Grön"], answer: 1 },
+      { q: "Vilket år är hon född?", options: ["1990", "1995", "2000"], answer: 0 },
+      { q: "Favoritdjur?", options: ["Katt", "Hund", "Kanin"], answer: 2 }
+      // 👉 Lägg till fler frågor här, samma format
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    const quizDiv = document.getElementById("quiz");
+    const resultDiv = document.getElementById("result");
+    const scoreSpan = document.getElementById("score");
+
+    // Visa en fråga i taget
+    function showQuestion() {
+      if (currentQuestion >= questions.length) {
+        quizDiv.classList.add("hidden");
+        resultDiv.classList.remove("hidden");
+        scoreSpan.textContent = score;
+        return;
+      }
+
+      const q = questions[currentQuestion];
+      quizDiv.innerHTML = `
+        <div class="question">
+          <h3>${q.q}</h3>
+          ${q.options.map((opt, i) => 
+            <button onclick="checkAnswer(${i})">${opt}</button>
+          ).join("")}
+        </div>
+      `;
+    }
+
+    // Kolla svar
+    function checkAnswer(selected) {
+      if (selected === questions[currentQuestion].answer) {
+        score++;
+      }
+      currentQuestion++;
+      showQuestion();
+    }
+
+    showQuestion();
+
+    // ---- 🔴 SKICKA RESULTAT TILL GOOGLE FORM ----
+    const form = document.getElementById("sendForm");
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+
+      // 🔴 BYT UT DENNA MOT DIN EGEN FORM-URL
+      const formUrl = "https://docs.google.com/forms/d/e/DITT-FORM-ID/formResponse";
+      
+      // 🔴 BYT UT entry.XXXX MOT DINA RIKTIGA ID:N
+      const data = new FormData();
+      data.append("entry.111111", name);  // <-- ID för "Namn"
+      data.append("entry.222222", score); // <-- ID för "Poäng"
+
+      fetch(formUrl, { method: "POST", body: data, mode: "no-cors" })
+        .then(() => {
+          form.innerHTML = "<p>Tack! Ditt resultat har skickats in 🎉</p>";
+        })
+        .catch(err => {
+          console.error("Fel vid inskick:", err);
+          form.innerHTML = "<p>Något gick fel, försök igen.</p>";
+        });
+    });
+  </script>
+</body>
+</html>
