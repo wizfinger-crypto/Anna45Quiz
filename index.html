@@ -31,7 +31,7 @@
     <p id="thanks" class="hidden">Tack! Ditt resultat har skickats in 🎉</p>
   </div>
 
-  <div class="footer">Copyright Björn2025.</div>
+  <div class="footer">Copyright Björn 2025.</div>
 
   <script>
     // ---- 📝 FRÅGORNA (ändra fritt här) ----
@@ -54,8 +54,8 @@
 
     function renderProgress() {
       progress.textContent = i < questions.length
-        ? Fråga ${i + 1} av ${questions.length}
-        : Klart!;
+        ? `Fråga ${i + 1} av ${questions.length}`
+        : `Klart!`;
     }
 
     function showQuestion() {
@@ -72,7 +72,7 @@
         <div class="question">
           <h3>${q.q}</h3>
           ${q.options.map((opt, idx) =>
-            <button type="button" data-idx="${idx}">${opt}</button>
+            `<button type="button" data-idx="${idx}">${opt}</button>`
           ).join("")}
         </div>
       `;
@@ -104,8 +104,8 @@
       const data = new FormData();
 
       // 🔴 BYT: lägg in dina riktiga entry-ID:n (A2)
-      // Exempel: data.append("entry.1499233855", name);  // Namn
-      // Exempel: data.append("entry.1636741181", score); // Poäng
+      // Exempel: data.append("entry.111111", name);  // Namn
+      // Exempel: data.append("entry.222222", score); // Poäng
       data.append("entry.1499233855_FOR_NAMN", name);   // 🔴 <-- byt till entry-ID för "Namn"
       data.append("entry.1636741181_FOR_POANG", score); // 🔴 <-- byt till entry-ID för "Poäng"
 
