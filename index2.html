@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz om [väns namn]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; line-height: 1.5; }
+    h1 { margin-top: 0; }
+    .question { margin-bottom: 20px; }
+    .hidden { display: none; }
+    button { margin: 6px 6px 0 0; padding: 10px 14px; cursor: pointer; }
+    #progress { margin-bottom: 16px; font-weight: bold; }
+    .footer { margin-top: 40px; font-size: 12px; opacity: 0.7; }
+    input[type="text"] { padding: 8px; margin-right: 6px; }
+  </style>
+</head>
+<body>
+  <h1>Quiz om [väns namn]</h1>
+
+  <div id="progress"></div>
+  <div id="quiz"></div>
+
+  <div id="result" class="hidden">
+    <h2>Du fick <span id="score"></span> rätt!</h2>
+    <form id="sendForm">
+      <label for="name">Ditt namn:</label>
+      <input type="text" id="name" name="name" required />
+      <button type="submit">Skicka resultat</button>
+    </form>
+    <p id="thanks" class="hidden">Tack! Ditt resultat har skickats in 🎉</p>
+  </div>
+
+  <div class="footer">Byggt för en födelsedag – enkelt och gratis.</div>
+
+  <script>
+    // ---- 📝 FRÅGORNA (ändra fritt här) ----
+    const questions = [
+      { q: "Vilken är hennes favoritfärg?", options: ["Blå", "Röd", "Grön"], answer: 1 },
+      { q: "Vilket år är hon född?", options: ["1990", "1995", "2000"], answer: 0 },
+      { q: "Favoritdjur?", options: ["Katt", "Hund", "Kanin"], answer: 2 }
+      // Lägg till fler frågor i samma format
+    ];
+
+    let i = 0;
+    let score = 0;
+
+    const quizDiv = document.getElementById("quiz");
+    const resultDiv = document.getElementById("result");
+    const scoreSpan = document.getElementById("score");
+    const progress = document.getElementById("progress");
+    const form = document.getElementById("sendForm");
+    const thanks = document.getElementById("thanks");
+
+    function renderProgress() {
+      progress.textContent = i < questions.length
+        ? Fråga ${i + 1} av ${questions.length}
+        : Klart!;
+    }
+
+    function showQuestion() {
+      if (i >= questions.length) {
+        quizDiv.classList.add("hidden");
+        resultDiv.classList.remove("hidden");
+        scoreSpan.textContent = score;
+        renderProgress();
+        return;
+      }
+
+      const q = questions[i];
+      quizDiv.innerHTML = `
+        <div class="question">
+          <h3>${q.q}</h3>
+          ${q.options.map((opt, idx) =>
+            <button type="button" data-idx="${idx}">${opt}</button>
+          ).join("")}
+        </div>
+      `;
+
+      quizDiv.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const selected = parseInt(btn.getAttribute("data-idx"), 10);
+          if (selected === q.answer) score++;
+          i++;
+          renderProgress();
+          showQuestion();
+        });
+      });
+
+      renderProgress();
+    }
+
+    showQuestion();
+
+    // ---- 🔗 KOPPLING TILL GOOGLE FORM ----
+    // 🔴 BYT: detta ska vara din /formResponse-URL (A1)
+    const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdOgJprJzcLMgFLy00tqZdBl1U_YCO1wymXGi5WwZhcY1WOUw/formResponse";
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      if (!name) return;
+
+      const data = new FormData();
+
+      // 🔴 BYT: lägg in dina riktiga entry-ID:n (A2)
+      // Exempel: data.append("entry.111111", name);  // Namn
+      // Exempel: data.append("entry.222222", score); // Poäng
+      data.append("entry.XXXXXX_FOR_NAMN", name);   // 🔴 <-- byt till entry-ID för "Namn"
+      data.append("entry.YYYYYY_FOR_POANG", score); // 🔴 <-- byt till entry-ID för "Poäng"
+
+      fetch(formUrl, { method: "POST", body: data, mode: "no-cors" })
+        .then(() => {
+          form.classList.add("hidden");
+          thanks.classList.remove("hidden");
+        })
+        .catch((err) => {
+          console.error("Fel vid inskick:", err);
+          alert("Hmm, något gick fel. Testa igen eller kolla att formUrl och entry-ID:n stämmer.");
+        });
+    });
+  </script>
+</body>
+</html>
