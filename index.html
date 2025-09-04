@@ -94,7 +94,7 @@
 
     // ---- 🔗 KOPPLING TILL GOOGLE FORM ----
     // 🔴 BYT: detta ska vara din /formResponse-URL (A1)
-    const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdOgJprJzcLMgFLy00tqZdBl1U_YCO1wymXGi5WwZhcY1WOUw/formResponse";
+    const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdOgJprJzcLMgFLy00tqZdBl1U_YCO1wymXGi5WwZhcY1WOUw/formResponse:";
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -104,10 +104,10 @@
       const data = new FormData();
 
       // 🔴 BYT: lägg in dina riktiga entry-ID:n (A2)
-      // Exempel: data.append("entry.111111", name);  // Namn
-      // Exempel: data.append("entry.222222", score); // Poäng
-      data.append("entry.XXXXXX_FOR_NAMN", name);   // 🔴 <-- byt till entry-ID för "Namn"
-      data.append("entry.YYYYYY_FOR_POANG", score); // 🔴 <-- byt till entry-ID för "Poäng"
+      // Exempel: data.append("entry.1499233855", name);  // Namn
+      // Exempel: data.append("entry.1636741181", score); // Poäng
+      data.append("entry.1499233855_FOR_NAMN", name);   // 🔴 <-- byt till entry-ID för "Namn"
+      data.append("entry.1636741181_FOR_POANG", score); // 🔴 <-- byt till entry-ID för "Poäng"
 
       fetch(formUrl, { method: "POST", body: data, mode: "no-cors" })
         .then(() => {
