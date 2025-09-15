@@ -35,105 +35,126 @@
 
   <script>
   const questions = [
-  { q: "Anna har haft många husdjur genom åren. vad hette hennes första katt?", options: ["Oswaldo", "Miss mancini", "Karl Lagerfeldt"], answer: 0 },
-  { q: "och på tal om husdjur. Vad hette Annas kaniner en gång i tiden?", options: ["Kim & Chanel", "Jim & Gucci", "Tim & Dior"], answer: 2 },
-  { q: "Annas kärlek till sina fyrfota vänner är ju enorm. Såpass att hon tatuerat mångas namn. Hur många husdjurs namn är förevigade på Annas arm (juli 2025)", options: ["Sex", "Fyra", "Fem"], answer: 0 },
-  { q: "När vi ändå är på ämnet antal. Hur många Anna Saletti finns det i Sverige (Augusti 2025)", options: ["Fem", "Sex", "Tre"], answer: 0 },
-  { q: "Vad är Annas fullständiga namn?", options: ["Anna Cristina Saletti", "Anna Ana Cristina Saletti", "Ana Cristina Saletti"], answer: 1 },
-  { q: "Vad, enligt Anna, är världens bästa botemedel för hicka?", options: ["Dricka vatten upp och ner", "Hålla andan och bli kittlad", "Måla läpparna med Maybelline"], answer: 2 },
-  { q: "Livsnjutare. Det kan man kalla Anna för. men vad är hennes favoritmåltid?", options: ["Det hon åt senast", "Toast skagen på Prinsen", "Minutbiff på Tures"], answer: 0 },
-  { q: "Anna har ju varit i farten länge men hur ung (gammal) var hon när hon flyttade hemifrån och vad jobbade hon med då?", options: ["19 år, hudterapeut på Akademikliniken", "17 år, servitris på Café Opera", "18, Gruppboende på Lidingö"], answer: 1 },
-  { q: "Appropå flytta. Hur många flyttar har det blivit för Anna?", options: ["sju", "Fyra", "Fem"], answer: 0 },
-  { q: "MAlla har vi en skämskudde, dvs något vi älskar men skäms för att erkänna (min är folköl), Vad är Annas?", options: ["Bridgeblandning", "Gorby's piroger som nattamat på jobbet", "Mc Donald's"], answer: 2 },
-  { q: "Vi återgår till Annas älskade 4-fota vänner. Milja har både gudmor och gudfar. Vilka är det?", options: ["Loella och Nick", "Frida och Anders", "Zandra och 'Marko"], answer: 1 },
-  { q: "Alla har någon gång haft en 'kändis-crush' och somliga har kanske till och med ett 'frikort'. Vem är Annas frikort?", options: ["Plura", "Jens Hultén", "Steffo Törnquist"], answer: 1 },
-  { q: "När Anna hängde med Zandra på stureplan slutade kvällarna allt som oftast med...", options: ["Skorna på bardisken & mobilen i toaletten", "Skaldjursplatå på Hofen 5 minuter innan köket stängde", "Anna trillar omkull och Zandra garvar ihjäl sig och sen en cykeltaxi på byn"], answer: 2 },
-  { q: "Anna är ju mån om sitt hem. Hon har anliltat en städhjälp som kommer med jämna mellanrum och ser till att allt är tipp topp. Vad heter hjälpen och varifrån kommer hen?", options: ["Alexandra från Ukraina", "Tip från Thailand", "Iwona från Polen"], answer: 2 },
-  { q: "Att Anna och Nick är som 'Ler och Långhalm' är ju ingen hemlighet. Men hur startade deras relation egentligen?", options: ["Nicks bror 'raggade' upp Anna på dagis", "Amma råkade köra på Nick med sin moppe", "Dom har en gång bott på samma barnhem"], answer: 0 },
-  { q: "Rädd blir hon inte ofta men när Anna åker tunnelbana är hon rädd för en sak. Vad?", options: ["Terrorattentat", "Tjackpundare", "Ordningsvakten Peter"], answer: 1 },
-  { q: "Resa är en av Annas stora intressen. Vilket land i världen har Anna besökt flest gånger?", options: ["Spanien", "Polen", "Italien"], answer: 1 },
-  { q: "Anna gillar ju att prata. Men vad var hennes första ord?", options: ["Platano", "Nata", "Gato"], answer: 0 },
-  { q: "I familjen finns sonen. Älskade Léon. Vad heter hans biologiska far?", options: ["Nicolas", "Enrique", "José"], answer: 0 },
-  { q: "Som avslutning på denna quiz så vill vi veta vilken film som är Annas favorit.", options: ["Titanic", "Dirty Dancing", "Skönheten och Odjuret"], answer: 2 }
-];
+    { q: "Anna har haft många husdjur genom åren. vad hette hennes första katt?", options: ["Oswaldo", "Miss mancini", "Karl Lagerfeldt"], answer: 0 },
+    { q: "och på tal om husdjur. Vad hette Annas kaniner en gång i tiden?", options: ["Kim & Chanel", "Jim & Gucci", "Tim & Dior"], answer: 2 },
+    { q: "Annas kärlek till sina fyrfota vänner är ju enorm. Såpass att hon tatuerat mångas namn. Hur många husdjurs namn är förevigade på Annas arm (juli 2025)", options: ["Sex", "Fyra", "Fem"], answer: 0 },
+    { q: "När vi ändå är på ämnet antal. Hur många Anna Saletti finns det i Sverige (Augusti 2025)", options: ["Fem", "Sex", "Tre"], answer: 0 },
+    { q: "Vad är Annas fullständiga namn?", options: ["Anna Cristina Saletti", "Anna Ana Cristina Saletti", "Ana Cristina Saletti"], answer: 1 },
+    { q: "Vad, enligt Anna, är världens bästa botemedel för hicka?", options: ["Dricka vatten upp och ner", "Hålla andan och bli kittlad", "Måla läpparna med Maybelline"], answer: 2 },
+    { q: "Livsnjutare. Det kan man kalla Anna för. men vad är hennes favoritmåltid?", options: ["Det hon åt senast", "Toast skagen på Prinsen", "Minutbiff på Tures"], answer: 0 },
+    { q: "Anna har ju varit i farten länge men hur ung (gammal) var hon när hon flyttade hemifrån och vad jobbade hon med då?", options: ["19 år, hudterapeut på Akademikliniken", "17 år, servitris på Café Opera", "18, Gruppboende på Lidingö"], answer: 1 },
+    { q: "Appropå flytta. Hur många flyttar har det blivit för Anna?", options: ["sju", "Fyra", "Fem"], answer: 0 },
+    { q: "MAlla har vi en skämskudde, dvs något vi älskar men skäms för att erkänna (min är folköl), Vad är Annas?", options: ["Bridgeblandning", "Gorby's piroger som nattamat på jobbet", "Mc Donald's"], answer: 2 },
+    { q: "Vi återgår till Annas älskade 4-fota vänner. Milja har både gudmor och gudfar. Vilka är det?", options: ["Loella och Nick", "Frida och Anders", "Zandra och 'Marko"], answer: 1 },
+    { q: "Alla har någon gång haft en 'kändis-crush' och somliga har kanske till och med ett 'frikort'. Vem är Annas frikort?", options: ["Plura", "Jens Hultén", "Steffo Törnquist"], answer: 1 },
+    { q: "När Anna hängde med Zandra på stureplan slutade kvällarna allt som oftast med...", options: ["Skorna på bardisken & mobilen i toaletten", "Skaldjursplatå på Hofen 5 minuter innan köket stängde", "Anna trillar omkull och Zandra garvar ihjäl sig och sen en cykeltaxi på byn"], answer: 2 },
+    { q: "Anna är ju mån om sitt hem. Hon har anliltat en städhjälp som kommer med jämna mellanrum och ser till att allt är tipp topp. Vad heter hjälpen och varifrån kommer hen?", options: ["Alexandra från Ukraina", "Tip från Thailand", "Iwona från Polen"], answer: 2 },
+    { q: "Att Anna och Nick är som 'Ler och Långhalm' är ju ingen hemlighet. Men hur startade deras relation egentligen?", options: ["Nicks bror 'raggade' upp Anna på dagis", "Amma råkade köra på Nick med sin moppe", "Dom har en gång bott på samma barnhem"], answer: 0 },
+    { q: "Rädd blir hon inte ofta men när Anna åker tunnelbana är hon rädd för en sak. Vad?", options: ["Terrorattentat", "Tjackpundare", "Ordningsvakten Peter"], answer: 1 },
+    { q: "Resa är en av Annas stora intressen. Vilket land i världen har Anna besökt flest gånger?", options: ["Spanien", "Polen", "Italien"], answer: 1 },
+    { q: "Anna gillar ju att prata. Men vad var hennes första ord?", options: ["Platano", "Nata", "Gato"], answer: 0 },
+    { q: "I familjen finns sonen. Älskade Léon. Vad heter hans biologiska far?", options: ["Nicolas", "Enrique", "José"], answer: 0 },
+    { q: "Som avslutning på denna quiz så vill vi veta vilken film som är Annas favorit.", options: ["Titanic", "Dirty Dancing", "Skönheten och Odjuret"], answer: 2 }
+  ];
 
-    let i = 0;
-    let score = 0;
+  let i = 0;
+  let score = 0;
+  let answersGiven = [];
 
-    const quizDiv = document.getElementById("quiz");
-    const resultDiv = document.getElementById("result");
-    const scoreSpan = document.getElementById("score");
-    const progress = document.getElementById("progress");
-    const form = document.getElementById("sendForm");
-    const thanks = document.getElementById("thanks");
+  const quizDiv = document.getElementById("quiz");
+  const resultDiv = document.getElementById("result");
+  const scoreSpan = document.getElementById("score");
+  const progress = document.getElementById("progress");
+  const form = document.getElementById("sendForm");
+  const thanks = document.getElementById("thanks");
 
-    function renderProgress() {
-      progress.textContent = i < questions.length
-        ? `Fråga ${i + 1} av ${questions.length}`
-        : `Klart!`;
-    }
+  function renderProgress() {
+    progress.textContent = i < questions.length
+      ? `Fråga ${i + 1} av ${questions.length}`
+      : `Klart!`;
+  }
 
-    function showQuestion() {
-      if (i >= questions.length) {
-        quizDiv.classList.add("hidden");
-        resultDiv.classList.remove("hidden");
-        scoreSpan.textContent = score;
-        renderProgress();
-        return;
-      }
-
-      const q = questions[i];
-      quizDiv.innerHTML = `
-        <div class="question">
-          <h3>${q.q}</h3>
-          ${q.options.map((opt, idx) =>
-            `<button type="button" data-idx="${idx}">${opt}</button>`
-          ).join("")}
-        </div>
-      `;
-
-      quizDiv.querySelectorAll("button").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const selected = parseInt(btn.getAttribute("data-idx"), 10);
-          if (selected === q.answer) score++;
-          i++;
-          renderProgress();
-          showQuestion();
-        });
-      });
-
+  function showQuestion() {
+    if (i >= questions.length) {
+      quizDiv.classList.add("hidden");
+      resultDiv.classList.remove("hidden");
+      scoreSpan.textContent = score;
       renderProgress();
+      return;
     }
 
-    showQuestion();
+    const q = questions[i];
+    quizDiv.innerHTML = `
+      <div class="question">
+        <h3>${q.q}</h3>
+        ${q.options.map((opt, idx) =>
+          `<button type="button" data-idx="${idx}">${opt}</button>`
+        ).join("")}
+      </div>
+    `;
 
-    // ---- 🔗 KOPPLING TILL GOOGLE FORM ----
-    // 🔴 BYT: detta ska vara din /formResponse-URL (A1)
-    const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSf-0tMqclvaaXIbaRMVaCX059Rj3PjR8gRKHwlGQ6YQbyejuQ/formResponse";
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const name = document.getElementById("name").value.trim();
-      if (!name) return;
-
-      const data = new FormData();
-
-      // 🔴 BYT: lägg in dina riktiga entry-ID:n (A2)
-      // Exempel: data.append("entry.111111", name);  // Namn
-      // Exempel: data.append("entry.222222", score); // Poäng
-      data.append("entry.524446883", name);   // 🔴 <-- byt till entry-ID för "Namn"
-      data.append("entry.1716823085", score); // 🔴 <-- byt till entry-ID för "Poäng"
-
-      fetch(formUrl, { method: "POST", body: data, mode: "no-cors" })
-        .then(() => {
-          form.classList.add("hidden");
-          thanks.classList.remove("hidden");
-        })
-        .catch((err) => {
-          console.error("Fel vid inskick:", err);
-          alert("Hmm, något gick fel. Testa igen eller kolla att formUrl och entry-ID:n stämmer.");
-        });
+    quizDiv.querySelectorAll("button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const selected = parseInt(btn.getAttribute("data-idx"), 10);
+        answersGiven.push(q.options[selected]); // spara valt svar
+        if (selected === q.answer) score++;
+        i++;
+        renderProgress();
+        showQuestion();
+      });
     });
+
+    renderProgress();
+  }
+
+  showQuestion();
+
+  // ---- 🔗 KOPPLING TILL GOOGLE FORM ----
+  const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSf-0tMqclvaaXIbaRMVaCX059Rj3PjR8gRKHwlGQ6YQbyejuQ/formResponse";
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    if (!name) return;
+
+    const data = new FormData();
+
+    // 🟢 Byt till dina riktiga entry-ID:n här
+    data.append("entry.524446883", name);   // Namn
+    data.append("entry.1716823085", score); // Poäng
+
+    // 🟢 En rad per fråga (byt ut XXXXXX mot respektive entry-ID från ditt Form)
+    data.append("entry.XXXX01", answersGiven[0] || "");
+    data.append("entry.XXXX02", answersGiven[1] || "");
+    data.append("entry.XXXX03", answersGiven[2] || "");
+    data.append("entry.XXXX04", answersGiven[3] || "");
+    data.append("entry.XXXX05", answersGiven[4] || "");
+    data.append("entry.XXXX06", answersGiven[5] || "");
+    data.append("entry.XXXX07", answersGiven[6] || "");
+    data.append("entry.XXXX08", answersGiven[7] || "");
+    data.append("entry.XXXX09", answersGiven[8] || "");
+    data.append("entry.XXXX10", answersGiven[9] || "");
+    data.append("entry.XXXX11", answersGiven[10] || "");
+    data.append("entry.XXXX12", answersGiven[11] || "");
+    data.append("entry.XXXX13", answersGiven[12] || "");
+    data.append("entry.XXXX14", answersGiven[13] || "");
+    data.append("entry.XXXX15", answersGiven[14] || "");
+    data.append("entry.XXXX16", answersGiven[15] || "");
+    data.append("entry.XXXX17", answersGiven[16] || "");
+    data.append("entry.XXXX18", answersGiven[17] || "");
+    data.append("entry.XXXX19", answersGiven[18] || "");
+    data.append("entry.XXXX20", answersGiven[19] || "");
+
+    fetch(formUrl, { method: "POST", body: data, mode: "no-cors" })
+      .then(() => {
+        form.classList.add("hidden");
+        thanks.classList.remove("hidden");
+      })
+      .catch((err) => {
+        console.error("Fel vid inskick:", err);
+        alert("Hmm, något gick fel. Testa igen eller kolla att formUrl och entry-ID:n stämmer.");
+      });
+  });
   </script>
 </body>
 </html>
